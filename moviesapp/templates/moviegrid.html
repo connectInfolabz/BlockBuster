@@ -1,0 +1,49 @@
+{% extends 'base.html'%}
+{%load static%}
+{%block main%}
+
+<div class="hero common-hero">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="hero-ct">
+					<h1>Movies</h1>
+					<ul class="breadcumb">
+						<li class="active"><a href="/">Home</a></li>
+						<li> <span class="ion-ios-arrow-right"></span> movie listing</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="page-single">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="topbar-filter fw">
+					<p>Found <span>{{count}} movies</span> in total</p>
+				</div>
+				<div class="flex-wrap-movielist mv-grid-fw">
+					{%for movie in movies %}
+						<div class="movie-item-style-2 movie-item-style-1">
+							<img src="{{movie.image}}" alt="" style="height:250px;">
+							<div class="hvr-inner">
+	            				<a  href="moviesingle.html"> Read more <i class="ion-android-arrow-dropright"></i> </a>
+	            			</div>
+							<div class="mv-item-infor">
+								<h6><a href="#">{{movie.title}}</a></h6>
+								<h6><a href="#">{{movie.Type}}</a></h6>
+								<p class="rate"><i class="ion-android-star"></i><span>{{movie.rating}}</span> /10</p>
+							</div>
+						</div>
+					{%endfor%}
+				</div>
+				<div class="topbar-filter">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{%endblock%}
